@@ -104,7 +104,7 @@ public class Employee {
         this.salary = salary;
     }
 
-    @Column(name = "IMAGE", length = 1111111, nullable = false)
+    @Column(name = "IMAGE", length = 1111111, nullable = true)
     @Lob
     public byte[] getImage() {
         return image;

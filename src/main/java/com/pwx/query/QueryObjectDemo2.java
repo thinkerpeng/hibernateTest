@@ -1,5 +1,6 @@
-package com.pwx;
+package com.pwx.query;
 
+import com.pwx.HibernateUtils;
 import com.pwx.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
