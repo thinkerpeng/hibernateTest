@@ -4,6 +4,8 @@ import com.pwx.HibernateUtils;
 import com.pwx.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
@@ -13,6 +15,8 @@ import java.util.List;
  */
 public class QueryObjectDemo
 {
+    private static final Logger LOGGER = LoggerFactory.getLogger(QueryObjectDemo.class);
+
     public static void main(String[] args)
     {
         Session session = HibernateUtils.getSession();
@@ -33,11 +37,7 @@ public class QueryObjectDemo
 
             // Execute query.
             List<Employee> employees = query.getResultList();
-
-            for (Employee e : employees)
-            {
-                System.out.println("Emp: " + e.getEmpNo() + " : " + e.getEmpName());
-            }
+            employees.forEach(employee -> LOGGER.info("Emp: {}, name: {}", employee.getEmpNo(), employee.getEmpName()));
 
             // Commit data;
             session.getTransaction().commit();
