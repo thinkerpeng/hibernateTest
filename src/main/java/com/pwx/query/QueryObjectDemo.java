@@ -26,7 +26,7 @@ public class QueryObjectDemo
 
             // create an HQL statement, query the object.
             // Equivalent to the SQL statement: Select e.* EMPLOYEE e order by e.EMP_NAME, E.EMP_NO
-            String sql = "Select e from " + Employee.class.getName() + " e order by e.empName, e.empNo ";
+            String sql = "from Employee e order by e.empName, e.empNo ";
 
             // Create Query object.
             Query<Employee> query = session.createQuery(sql);
